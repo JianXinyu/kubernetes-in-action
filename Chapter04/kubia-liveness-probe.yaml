@@ -4,10 +4,12 @@ metadata:
   name: kubia-liveness
 spec:
   containers:
-  - image: luksa/kubia-unhealthy
+  - image: kubia-unhealthy:1.0.0
     name: kubia
+    imagePullPolicy: Never
     livenessProbe:
       httpGet:
         path: /
         port: 8080
+      initialDelaySeconds: 15
 
