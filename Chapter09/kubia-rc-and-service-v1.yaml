@@ -11,7 +11,7 @@ spec:
         app: kubia
     spec:
       containers:
-      - image: luksa/kubia:v1
+      - image: kubia:v1
         name: nodejs
 ---
 apiVersion: v1
@@ -19,9 +19,10 @@ kind: Service
 metadata:
   name: kubia
 spec:
-  type: LoadBalancer
+  type: NodePort 
   selector:
     app: kubia
   ports:
   - port: 80
     targetPort: 8080
+    nodePort: 31500
